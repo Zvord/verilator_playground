@@ -1,9 +1,9 @@
-.PHONY: build
+.PHONY: build run version clean
 
-VERILATOR_ROOT=/nfs/users/ibarkov/soft/verilator
-export CC=/usr/lib64/ccache/clang
-export CXX=usr/lib64/ccache/clang++
 BIN=Vtop
+
+clean:
+	rm -rf obj_dir
 
 build:
 	$(VERILATOR_ROOT)/bin/verilator -F list/filelist.f --cc --binary --timing --compiler clang -o $(BIN) -O0
