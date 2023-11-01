@@ -14,23 +14,11 @@ module tb_top;
 	end
 
 	accum dut (.*);
-
-	initial begin
-		wait(rst_n == 1);
-		repeat (10) begin
-			@(posedge clk);
-			val = $urandom_range(100, 0);
-		end	
-		$finish;
-	end
-
-	initial begin
-		$monitor("time: %0d, val = %0d, acc = %0d", $time, val, acc);
-	end
-/*
 	harness vif(.*);
+
 	driver d;
 	monitor m;
+
 	initial begin
 		d = new();
 		m = new();
@@ -43,6 +31,5 @@ module tb_top;
 		join_any
 		#10;
 		$finish;
-	end	
-*/
+	end
 endmodule
