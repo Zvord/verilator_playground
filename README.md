@@ -7,5 +7,5 @@ Right now there's not much to show. My attempt to use simple driver and monitor 
 ## How to use
 Set `$VERILATOR_ROOT` according to your Verilator installation, which shall be >= v5.0. Your C++ compiler must support couroutines. Then
 ```bash
-make build run
+make clean build run
 ```
