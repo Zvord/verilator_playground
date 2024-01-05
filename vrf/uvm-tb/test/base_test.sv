@@ -14,7 +14,6 @@ class base_test extends uvm_test;
 
     virtual task main_phase(uvm_phase phase);
         super.main_phase(phase);
-
     endtask : main_phase
 
 

@@ -1,6 +1,6 @@
 class simple_env extends uvm_env;
     `uvm_component_utils(simple_env)
-    // Components of the environment
+
     simple_agent agent;
 
     function new(string name, uvm_component parent);

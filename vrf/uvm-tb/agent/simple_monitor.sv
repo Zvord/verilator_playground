@@ -18,8 +18,6 @@ class simple_monitor extends uvm_monitor;
     endfunction : build_phase
 
     task run_phase(uvm_phase phase);
-//      if (vif == null)
-//          $fatal("No VIF set!");
         wait(vif.rst_n == 1);
         forever begin
             @(posedge vif.clk);
