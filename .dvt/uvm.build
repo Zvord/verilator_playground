@@ -1,0 +1,11 @@
+# Automatically identify and compile all the source files in the project directory.
+# DO NOT explicitly list files/directories in 'dvt_init_auto' sections. Use 'dvt_init' sections instead.
++dvt_init
+
++dvt_setenv+TB=vrf/uvm-tb
++dvt_setenv+RTL=rtl
++dvt_setenv+UVM_HOME=uvm
+
+-uvm
+
+-f $TB/list/filelist.f
