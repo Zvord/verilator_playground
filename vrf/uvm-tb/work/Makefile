@@ -11,11 +11,12 @@ export TB
 export RTL
 export UVM_HOME
 
-NPROC=8
+NPROC=16
 
 # Without --debug it has internal error
 # NO_DPI prevents linkage error
 BUILD_OPTS = \
+	--output-groups $(NPROC) \
 	-DUVM_NO_DPI \
 	--timescale 1ns/1ps \
 	--cc \
@@ -23,7 +24,6 @@ BUILD_OPTS = \
 	--timing \
 	-O3 \
 	-j $(NPROC) \
-	--debug \
 	-Wno-lint \
 	-Wno-style \
 	-Wno-SYMRSVDWORD \
