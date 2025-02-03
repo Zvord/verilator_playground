@@ -11,7 +11,7 @@ class simple_driver extends uvm_driver#(simple_item);
 		super.build_phase(phase);
 // ! Verilator can't compare vif with null
 		// if (vif == null) begin
-			if (!uvm_config_db#(virtual simple_if)::get(this, "", "vif", vif)) begin
+			if (0 == uvm_config_db#(virtual simple_if)::get(this, "", "vif", vif)) begin
 				`uvm_error("NOVIF", {"Interface is not set for ", get_full_name()})
 			end
 		// end
@@ -25,7 +25,9 @@ class simple_driver extends uvm_driver#(simple_item);
 		forever begin
 			seq_item_port.get_next_item(req);
 			@(posedge vif.clk);
+			`uvm_info(get_name(), $sformatf("Driving the item\n%s", req.sprint()), UVM_MEDIUM)
 			vif.val <= req.value;
+			seq_item_port.item_done();
 		end
 	endtask
 endclass

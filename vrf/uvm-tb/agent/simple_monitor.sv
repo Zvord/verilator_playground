@@ -11,7 +11,7 @@ class simple_monitor extends uvm_monitor;
         super.build_phase(phase);
 // ! Verilator can't compare vif with null
 		// if (vif == null) begin
-			if (!uvm_config_db#(virtual simple_if)::get(this, "", "vif", vif)) begin
+			if (0 == uvm_config_db#(virtual simple_if)::get(this, "", "vif", vif)) begin
 				`uvm_error("NOVIF", {"Interface is not set for ", get_full_name()})
 			end
 		// end

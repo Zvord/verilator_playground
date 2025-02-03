@@ -11,6 +11,14 @@ module tb_top;
 	always #1 clk <= ~clk;
 
 	initial begin
+		// Initialize signals
+		clk = 0;
+		rst_n = 0;
+
+		// Set up VCD dump
+		$dumpfile("tb.vcd");
+		$dumpvars(0, tb_top);
+
 		#10;
 		rst_n = 1;
 	end
@@ -23,6 +31,6 @@ module tb_top;
 	end
 
 	initial begin
-		run_test("base_test");
+		run_test("simple_test");
 	end
 endmodule

@@ -9,3 +9,5 @@
 -uvm
 
 -f $TB/list/filelist.f
+
+-top tb_top
